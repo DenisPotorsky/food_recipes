@@ -1,0 +1,40 @@
+{% extends 'base1.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<div>
+    <h1>Добро пожаловать! И добро пожаловало)))</h1>
+    <h3>6 случайных рецептов:</h3>
+</div>
+<main>
+    <div class="album py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for recipe in recipes %}
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
+                             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
+                             preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#fff"></rect>
+                            <text x="50%" y="50%" fill="#eceeef" dy=".3em">{{recipe.name}}</text>
+                            <image height="" width="" href="{{recipe.image.url}}"/>
+                        </svg>
+                        <div class="card-body" style="max-height: 150px; overflow: auto;">
+                            <p class="card-text">{{ recipe.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'full' recipe.pk %}"
+                                       type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                                </div>
+                                <small class="text-body-secondary">Время приготовления {{ recipe.cooking_time }}
+                                    минут</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
