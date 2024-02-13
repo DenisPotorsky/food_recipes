@@ -8,7 +8,6 @@ __pycache__/
 *.so
 /media/
 /static/
-*.sqlite3
 *.log
 *.pyc
 # Distribution / packaging
